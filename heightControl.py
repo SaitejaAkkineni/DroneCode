@@ -1,5 +1,6 @@
 import gpiozero as pig
 import time
+from Drone import Drone
 
 reading=True
 sensor=pig.DistanceSensor(echo=24,trigger=23)
@@ -12,10 +13,10 @@ def distance():
 
 def mantainAlt(height):
     while(height-10>distance()):
-        # moveup
+        Drone.control('w')
         continue
     while(height+10>distance()):
-        # movedown
+        Drone.control('s')
         continue
 
 if __name__=="__main__":
