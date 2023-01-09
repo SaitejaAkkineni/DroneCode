@@ -8,7 +8,7 @@ class HeightController:
     def __init__(self,height):
         self.height=height
         self.end=False
-        t=threading.Thread(target=self.mantainAlt,args=self.height)
+        t=threading.Thread(target=self.mantainAlt,args=(self.height,))
         t.start()
     def mantainAlt(self):
         Dr=Drone()
